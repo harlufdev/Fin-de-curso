@@ -1,0 +1,225 @@
+/* Aquí puedes importar tu fuente Deltarune-like */
+/* Por ejemplo, si tienes un archivo 'determination.ttf' en la misma carpeta: */
+@font-face {
+    font-family: '8bitOperatorPlus-Bold';
+    src: url('https://deltarune.com/assets/fonts/8bitOperatorPlus-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    font-family: '8bitOperatorPlus-Bold', monospace; /* Usa tu fuente, o monospace como fallback */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Oculta el scrollbar si las imágenes se salen un poco */
+    position: relative; /* Para posicionar las imágenes laterales */
+}
+
+.container {
+    text-align: center;
+    z-index: 10; /* Asegura que el contenido principal esté por encima de las imágenes laterales */
+}
+
+/* Animación para que el título baje desde arriba */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%); /* Comienza 100% de su altura por encima de su posición original */
+        opacity: 0; /* Totalmente invisible al inicio */
+    }
+    100% {
+        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1; /* Totalmente visible al final */
+    }
+}
+
+#pageTitle {
+    font-size: 5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #555; /* Efecto de sombra para el texto */
+    animation: slideDown 2.5s ease-out forwards; /* Nombre, duración, tipo de easing, y forwards para que se quede al final */
+    opacity: 0; /* Inicia invisible para que la animación lo haga aparecer */
+}
+
+#pageSubtitle {
+    font-size: 2.5em;
+    margin-bottom: 100px;
+    color: #e5ff00;
+    text-decoration-color: #7f8d00;
+    animation: shake 2s infinite;
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(0);
+	}
+
+	10% {
+		transform: translate(-2px, -2px);
+	}
+
+	20% {
+		transform: translate(2px, -2px);
+	}
+
+	30% {
+		transform: translate(-2px, 2px);
+	}
+
+	40% {
+		transform: translate(2px, 2px);
+	}
+
+	50% {
+		transform: translate(-2px, -2px);
+	}
+
+	60% {
+		transform: translate(2px, -2px);
+	}
+
+	70% {
+		transform: translate(-2px, 2px);
+	}
+
+	80% {
+		transform: translate(-2px, -2px);
+	}
+
+	90% {
+		transform: translate(2px, -2px);
+	}
+
+	100% {
+		transform: translate(0);
+	}
+}
+
+.countdown-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 2.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%); /* Comienza 100% de su altura por encima de su posición original */
+        opacity: 0; /* Totalmente invisible al inicio */
+    }
+    100% {
+        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1; /* Totalmente visible al final */
+    }
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los elementos del contador */
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.countdown-item {
+    text-align: center;
+    line-height: 1.2;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 1.2em; /* Tamaño para los números */
+}
+
+.countdown-item br {
+    display: none; /* Oculta el <br> original, usamos display:block para el texto */
+}
+
+.countdown-item:last-child {
+    margin-right: 0;
+}
+
+/* Animación para la imagen flotante */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-35px); /* Se mueve 15px hacia arriba */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Aplica la animación a la imagen inferior */
+#bottomImage {
+    max-width: 80%;
+    height: auto;
+    margin-top: -30px;
+    /* border: 2px solid #fff; */ /* Comentado porque tu CSS original no lo tenía */
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); */ /* Comentado porque tu CSS original no lo tenía */
+    animation: float 3s ease-in-out infinite; /* Nombre de la animación, duración, tipo de easing, repetición infinita */
+}
+
+#days{
+    animation: float 3s ease-in-out infinite;
+}
+#hours{
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+#minutes{
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1s;
+}
+#seconds{
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    #pageTitle {
+        font-size: 2em;
+    }
+
+    .countdown {
+        font-size: 2.5em;
+        gap: 10px;
+    }
+
+    .countdown-item span {
+        font-size: 1em;
+    }
+
+    .side-image {
+        height: 70vh; /* Ajustar altura para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    #pageTitle {
+        font-size: 1.5em;
+    }
+
+    .countdown {
+        font-size: 1.8em;
+        flex-wrap: wrap; /* Permite que los elementos del contador salten de línea */
+        gap: 5px;
+    }
+
+    .countdown-item {
+        margin: 5px;
+    }
+
+    .side-image {
+        display: none; /* Opcional: ocultar las imágenes laterales en pantallas muy pequeñas */
+    }
+}
