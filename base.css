@@ -1,0 +1,83 @@
+/* base.css */
+
+/* --- FUENTE BASE --- */
+@font-face {
+    font-family: '8bitOperatorPlus-Bold';
+    src: url('https://deltarune.com/assets/fonts/8bitOperatorPlus-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- ESTILOS DEL CUERPO Y CONTENEDOR --- */
+body {
+    background-color: #000;
+    color: #fff;
+    /* CORREGIDO: Fuente inicial genérica */
+    font-family: Arial, sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+}
+
+/* --- TÍTULO Y SUBTÍTULO --- */
+/* NO SE DEFINE font-family aquí para que hereden del body */
+#pageTitle {
+    font-size: 5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #555;
+    animation: slideDown 2.5s ease-out forwards;
+    opacity: 0;
+}
+
+#pageSubtitle {
+    font-size: 2.5em;
+    margin-bottom: 100px;
+    color: #e5ff00;
+    text-decoration-color: #7f8d00;
+    animation: fadeInDown 1.5s ease-out forwards, shake 2s 1.5s infinite;
+    opacity: 0;
+}
+
+/* --- ANIMACIONES GLOBALES --- */
+
+/* Animación de entrada: deslizar abajo */
+@keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Animación de entrada: deslizar arriba */
+@keyframes slideUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Animación del subtítulo: fundido suave y deslizamiento ligero (última corrección) */
+@keyframes fadeInDown {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Animación de temblor */
+@keyframes shake {
+	0% { transform: translate(0); }
+	10% { transform: translate(-2px, -2px); }
+	20% { transform: translate(2px, -2px); }
+	30% { transform: translate(-2px, 2px); }
+	40% { transform: translate(2px, 2px); }
+	50% { transform: translate(-2px, -2px); }
+	60% { transform: translate(2px, -2px); }
+	70% { transform: translate(-2px, 2px); }
+	80% { transform: translate(-2px, -2px); }
+	90% { transform: translate(2px, -2px); }
+	100% { transform: translate(0); }
+}
