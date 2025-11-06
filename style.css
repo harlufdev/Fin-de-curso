@@ -151,7 +151,7 @@ body {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-35px); /* Se mueve 15px hacia arriba */
+        transform: translateY(-35px); /* Se mueve 35px hacia arriba */
     }
     100% {
         transform: translateY(0px);
@@ -222,4 +222,37 @@ body {
     .side-image {
         display: none; /* Opcional: ocultar las imágenes laterales en pantallas muy pequeñas */
     }
+}
+
+/* --- EFECTO DE NIEVE (PARTÍCULAS) --- */
+
+/* Contenedor principal que cubre toda la pantalla */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Asegura que esté detrás de todo el contenido de la página */
+    pointer-events: none; /* Permite hacer clic a través de la nieve al contenido */
+}
+
+/* Animación de la caída de la nieve */
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Mueve la partícula hacia abajo */
+    }
+}
+
+/* Base para cada partícula de nieve */
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%; /* Las hace redondas como copos */
+    opacity: 0.8;
+    animation-name: fall;
+    animation-timing-function: linear; /* Caída constante */
+    animation-iteration-count: infinite; /* Nunca se detiene */
 }
