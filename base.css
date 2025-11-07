@@ -1,0 +1,189 @@
+/* --- FUENTE BASE --- */
+@font-face {
+    font-family: '8bitOperatorPlus-Bold';
+    src: url('https://deltarune.com/assets/fonts/8bitOperatorPlus-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- ESTILOS DEL CUERPO Y CONTENEDOR --- */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: '8bitOperatorPlus-Bold', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative; /* ¡ESENCIAL! */
+}
+
+/* --- TÍTULO Y SUBTÍTULO --- */
+#pageTitle {
+    font-size: 5em;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px #555;
+    animation: slideDown 2.5s ease-out forwards;
+    opacity: 0;
+}
+
+#pageSubtitle {
+    font-size: 2.5em;
+    margin-bottom: 100px;
+    color: #e5ff00;
+    text-decoration-color: #7f8d00;
+    animation: fadeInDown 1.5s ease-out forwards, shake 2s 1.5s infinite;
+    opacity: 0;
+    position: relative; /* Para asegurar que el splash se vea por encima si se solapa */
+    z-index: 99;
+}
+
+/* --- Fecha Actual (Centrada - CORREGIDO) --- */
+#currentDate {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: #fff;
+    opacity: 0; 
+    animation: fadeInDown 1.5s ease-out forwards;
+    animation-delay: 0.1s;
+    z-index: 100;
+    white-space: nowrap;
+    margin: 0; /* Asegurar que no hay márgenes */
+}
+
+/* --- Indicador Día/Noche --- */
+#dayNightIcon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 2.5em;
+    color: #e5ff00; 
+    z-index: 10;
+    transition: color 1.5s;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: fadeInDown 1s ease-out forwards;
+    opacity: 0; 
+    animation-delay: 0.5s;
+}
+
+#dayNightIcon.night {
+    color: #b3c5ff; /* Tono azulado para la luna */
+}
+#dayNightIcon.day {
+    color: #ff9900; /* Tono anaranjado para el sol */
+}
+
+/* --- Splash de Hito (POSICIÓN CORREGIDA) --- */
+#milestoneSplash {
+    position: absolute;
+    top: 100px;
+    left: 82%;
+    transform: translateX(-50%) rotate(-5deg);
+    font-size: 1.8em;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 20px 60px; /* AUMENTADO: mucho más margen interno */
+    text-shadow: 2px 2px #000000;
+    z-index: 100;
+    cursor: default;
+    
+    /* NUEVO: Control explícito del ancho - MUCHO MÁS ANCHO */
+    max-width: 600px; /* Mucho más ancho */
+    min-width: 400px; /* Más ancho mínimo */
+    white-space: normal;
+    text-align: center;
+    
+    animation: splashAppear 0.5s ease-out 1 forwards, 
+               splashLoop 1.5s ease-in-out infinite 0.5s;
+    opacity: 0;
+    
+    animation-delay: 2.5s;
+    border: none;
+    box-shadow: none;
+}
+
+#milestoneSplash.milestone-hidden {
+    display: none !important;
+}
+
+/* Clases de color (Se mantienen) */
+.milestone-red { color: #ff5151; }
+.milestone-green { color: #47ff47; }
+.milestone-blue { color: #3ea5ff; }
+.milestone-yellow { color: #e5ff00; }
+.milestone-purple { color: #ff49ff; }
+
+
+/* --- ANIMACIONES GLOBALES --- */
+
+/* Animación de entrada: deslizar abajo */
+@keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Animación de entrada: deslizar arriba */
+@keyframes slideUp {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Animación del subtítulo: fundido suave y deslizamiento ligero */
+@keyframes fadeInDown {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Animación de shake (Original) */
+@keyframes shake {
+	0% { transform: translate(0); }
+	10% { transform: translate(-2px, -2px); }
+	20% { transform: translate(2px, -2px); }
+	30% { transform: translate(-2px, 2px); }
+	40% { transform: translate(2px, 2px); }
+	50% { transform: translate(-2px, -2px); }
+	60% { transform: translate(2px, -2px); }
+	70% { transform: translate(-2px, 2px); }
+	80% { transform: translate(-2px, -2px); }
+	90% { transform: translate(2px, -2px); }
+	100% { transform: translate(0); }
+}
+
+/* Animación de aparición del Splash (ORIGINAL) */
+@keyframes splashAppear {
+    0% { transform: translateX(-50%) rotate(0deg) scale(0); opacity: 0; }
+    80% { transform: translateX(-50%) rotate(-5deg) scale(1.1); opacity: 1; }
+    100% { transform: translateX(-50%) rotate(-5deg) scale(1); opacity: 1; }
+}
+
+/* Animación de bucle para el Splash (ORIGINAL) */
+@keyframes splashLoop {
+    0% { transform: translateX(-50%) rotate(-5deg) scale(1); }
+    50% { transform: translateX(-50%) rotate(-5deg) scale(1.05); }
+    100% { transform: translateX(-50%) rotate(-5deg) scale(1); }
+}
+
+#pageTitle, 
+#pageSubtitle, 
+.countdown,
+.countdown-item,
+.countdown-item span {
+    font-family: inherit !important; 
+}
+
+#days, 
+#hours, 
+#minutes, 
+#seconds {
+    font-family: inherit !important;
+}

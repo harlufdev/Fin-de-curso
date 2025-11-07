@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin de curso</title>
+    <link rel="icon" type="image/png" href="https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da846bd53cacc28efbe0417a9ed9">
+    
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./countdown.css">
+    <link rel="stylesheet" href="./fx.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div> 
+    
+    <div id="dayNightIcon"></div> 
+
+    <div class="font-selector">
+        <div class="font-toggle" id="fontToggle">A</div>
+            <div class="font-panel" id="fontPanel">
+                <div class="font-option" data-font="Arial (Default)">Arial</div>
+                <div class="font-option" data-font="Montserrat">Montserrat</div>
+                <div class="font-option" data-font="Roboto Mono">Roboto Mono</div>
+                <div class="font-option" data-font="Handwritten">Handwritten</div>
+                <div class="font-option" data-font="Retro (8-bit)">Retro 8-bit</div>
+                <div class="font-option" data-font="Tecno-Gaming">Tecno Gaming</div>
+                <div class="font-option" data-font="Impacto">Impacto</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3 id="currentDate">Viernes, 7 Noviembre 2025</h3> 
+        
+        <h1 id="pageTitle">FIN DE CURSO</h1>
+        
+        <p id="milestoneSplash" class="milestone-hidden"></p>
+        
+        <h2 id="pageSubtitle">21 de Junio de 2026</h2>
+        
+        <div class="countdown-wrapper">
+            <div id="countdown" class="countdown">
+                <span class="countdown-item"><span id="days">000</span>DÍAS</span>
+                <span class="countdown-item"><span id="hours">00</span>HORAS</span>
+                <span class="countdown-item"><span id="minutes">00</span>MINUTOS</span>
+                <span class="countdown-item"><span id="seconds">00</span>SEGUNDOS</span>
+            </div>
+            
+        </div>
+        
+        <div id="dateSelectors" class="date-selectors">
+            <button class="date-button" data-key="bach">2º Bachillerato</button>
+            <button class="date-button" data-key="recup">Recuperaciones</button>
+            <button class="date-button" data-key="ccaa">Elegir C.A. / ESO</button>
+        </div>
+
+        <div id="ccaaSelector" class="ccaa-selector hidden">
+        </div>
+        
+        <button id="musicToggle" class="music-button" title="Activar/Desactivar música">🔈</button> 
+
+    </div>
+
+    <audio id="backgroundMusic" loop> 
+        <source id="musicSourceOgg" src="normal.ogg" type="audio/ogg"> 
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script src="./dom_refs.js"></script>
+    <script src="./config.js"></script>
+    <script src="./countdown.js"></script>
+    <script src="./fx.js"></script>
+    <script src="./particles-config.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="particles-config.js?v=1.1"></script>
+</body>
+</html>

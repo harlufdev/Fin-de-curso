@@ -1,0 +1,289 @@
+/* Selector de Fuentes Moderno */
+.font-selector {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+.font-toggle {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #e5ff00;
+    color: #e5ff00;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    animation: slideLeftFast ease-in-out 1.5s;
+}
+
+.font-toggle:hover {
+    background: #e5ff00;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(229, 255, 0, 0.5);
+}
+
+.font-panel {
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #e5ff00;
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(15px);
+}
+
+.font-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
+}
+
+.font-option {
+    background: transparent;
+    border: 1px solid rgba(229, 255, 0, 0.3);
+    color: rgb(255, 145, 0);
+    padding: 12px 0px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.font-option:hover {
+    background: rgba(229, 255, 0, 0.1);
+    border-color: #e5ff00;
+    transform: translateX(5px);
+}
+
+.font-option.active {
+    background: rgba(229, 255, 0, 0.2);
+    border-color: #e5ff00;
+    color: #e5ff00;
+}
+
+/* --- BOTONES SELECTORES DE FECHA PRINCIPALES --- */
+.date-selectors {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    z-index: 10;
+    animation: slideUp 2.5s ease-out forwards;
+    animation-delay: 0.5s; 
+    opacity: 0;
+}
+
+.date-button {
+    background: none;
+    color: #e5ff00;
+    border: 2px solid #e5ff00;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit; 
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: background-color 0.1s, color 0.1s, border-color 0.1s;
+    line-height: 1;
+    border-radius: 8px;
+}
+
+.date-button:hover,
+.date-button.active {
+    background-color: #e5ff00;
+    color: #000;
+    border-color: #e5ff00;
+}
+
+.date-button.active {
+    border-color: #fff; 
+}
+
+
+/* --- SELECTOR DE COMUNIDADES AUTÓNOMAS --- */
+.ccaa-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    animation: slideUp 1.5s ease-out forwards;
+    z-index: 10;
+    border-radius: 8px;
+}
+
+.ccaa-button {
+    background: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8em;
+    transition: background-color 0.1s, color 0.1s;
+    line-height: 1.2;
+    border-radius: 8px;
+}
+
+.ccaa-button:hover {
+    background-color: #333;
+}
+
+.ccaa-button.active {
+    background-color: #e5ff00;
+    color: #000;
+    border-color: #e5ff00;
+}
+
+.ccaa-selector.hidden {
+    display: none;
+}
+
+
+/* --- BOTÓN DE MÚSICA (REESTABLECIDO A TU ORIGINAL) --- */
+@keyframes slideLeftFast {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.music-button {
+    position: fixed; 
+    bottom: 20px;
+    left: 20px; /* REESTABLECIDO: Posición izquierda */
+    
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 4em; /* REESTABLECIDO: Tamaño 4em */
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 900;
+    line-height: 1;
+    
+    animation: slideLeftFast 1.5s ease-out forwards; /* REESTABLECIDO: Animación */
+    opacity: 0; 
+}
+
+.music-button:hover {
+    color: #e5ff00;
+}
+
+/* ====================================================================*/
+/* === ESTILO MODO DEBUG (INCLUYE SELECTOR MANUAL) ===*/
+/* ====================================================================*/
+
+#debugPanel {
+    position: fixed; 
+    top: 10px;
+    right: 10px;
+    background-color: #000;
+    border: 2px solid #e5ff00;
+    padding: 10px;
+    z-index: 1000; 
+    font-family: inherit;
+    font-size: 0.8em;
+    color: #fff;
+    max-width: 250px; 
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    gap: 8px;
+}
+
+#debugPanel h3 {
+    margin: 0 0 10px 0;
+    color: #e5ff00;
+    font-size: 1.1em;
+}
+
+/* Selector Manual de Fecha/Hora (Caract. 5) */
+.date-selector-group-debug {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid #7f8d00;
+    background-color: #111;
+}
+
+.date-selector-group-debug label {
+    font-size: 0.9em;
+    color: #e5ff00;
+    text-align: left;
+}
+
+.date-selector-group-debug input[type="date"],
+.date-selector-group-debug input[type="time"] {
+    padding: 5px;
+    border: 1px solid #e5ff00;
+    background-color: #000;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+/* ... (Resto de estilos de #debugPanel sin cambios) ... */
+
+#debugPanel button,
+#debugPanel select { 
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: #e5ff00;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+    transition: background-color 0.1s;
+    margin-bottom: 0; 
+}
+
+#debugPanel button:hover {
+    background-color: #fff;
+}
+
+#debugPanel select {
+    background-color: #000;
+    color: #e5ff00;
+    border: 1px solid #e5ff00;
+    margin-top: 0;
+    padding: 5px;
+}
+
+#debugPanel label {
+    display: block;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 3px;
+    font-size: 0.9em;
+}
+
+.hidden {
+    display: none !important;
+}
