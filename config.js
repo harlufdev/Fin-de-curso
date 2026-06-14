@@ -12,7 +12,7 @@ const DATE_RECUP = new Date('2026-07-01T15:00:00').getTime();
 
 // Fechas por CCAA
 const CCAA_DATES = {
-    'AND': {name: 'Andalucía', date: '2026-06-23T15:00:00'},
+    'AND': {name: 'Andalucía', date: '2026-06-23T14:45:00'},
     'ARA': {name: 'Aragón', date: '2026-06-21T15:00:00'},
     'AST': {name: 'Asturias', date: '2026-06-21T15:00:00'},
     'BAL': {name: 'Islas Baleares', date: '2026-06-22T15:00:00'},
@@ -24,7 +24,7 @@ const CCAA_DATES = {
     'MAD': {name: 'Comunidad de Madrid', date: '2026-06-21T15:00:00'},
     'VAL': {name: 'Comunidad Valenciana', date: '2026-06-18T15:00:00'},
     'EXT': {name: 'Extremadura', date: '2026-06-20T15:00:00'},
-    'GAL': {name: 'Galicia', date: '2026-06-19T15:00:00'},
+    'GAL': {name: 'Galicia', date: '2026-06-19T15:10:00'},
     'RIO': {name: 'La Rioja', date: '2026-06-23T15:00:00'},
     'MUR': {name: 'Región de Murcia', date: '2026-06-24T15:00:00'},
     'NAV': {name: 'Comunidad Foral de Navarra', date: '2026-06-17T15:00:00'},
