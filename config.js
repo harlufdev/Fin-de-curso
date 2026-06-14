@@ -12,7 +12,7 @@ const DATE_RECUP = new Date('2026-07-01T15:00:00').getTime();
 
 // Fechas por CCAA
 const CCAA_DATES = {
-    'AND': {name: 'Andalucía', date: '2026-06-23T14:45:00'},
+    'AND': {name: 'Andalucía', date: '2026-06-23T15:45:00'},
     'ARA': {name: 'Aragón', date: '2026-06-21T15:00:00'},
     'AST': {name: 'Asturias', date: '2026-06-21T15:00:00'},
     'BAL': {name: 'Islas Baleares', date: '2026-06-22T15:00:00'},
